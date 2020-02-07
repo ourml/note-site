@@ -1,0 +1,25 @@
+image: node:10.16.0-alpine
+
+before_script:
+  # Set TimeZone, eg: Asia/Shanghai
+  - export TZ='Asia/Shanghai'
+  # Restore last modified time
+  - "git ls-files -z | while read -d '' path; do touch -d \"$(git log -1 --format=\"@%ct\" \"$path\")\" \"$path\"; done"
+
+pages:
+  stage: build
+  cache:
+    paths:
+    - node_modules/
+  script:
+  - git submodule init
+  - git submodule update
+  - npm install hexo-cli -g
+  - npm install
+  - hexo clean
+  - hexo deploy
+  artifacts:
+    paths:
+    - public
+  only:
+  - master

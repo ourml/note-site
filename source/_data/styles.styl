@@ -1,0 +1,84 @@
+body {
+  background: url(/images/bg.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+//博客内容透明化
+//文章内容的透明度设置
+.content-wrap {
+  opacity: 0.9;
+}
+
+//侧边框的透明度设置
+.sidebar {
+  opacity: 0.9;
+}
+
+.post {
+   margin-top: 60px;
+   margin-bottom: 60px;
+   padding: 25px;
+   -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);
+   -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);
+  }
+
+.highlight-container:hover .copy-btn,
+.highlight-container .copy-btn:focus {
+  opacity: 1;
+}
+
+.highlight-container {
+  border-radius: 5px;
+  box-shadow: 0 10px 30px 0 rgba(0,0,0,0.4);
+  padding-top: 30px;
+}
+
+.highlight-container::before {
+  background: #fc625d;
+  border-radius: 50%;
+  box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
+  content: ' ';
+  height: 12px;
+  left: 12px;
+  margin-top: -20px;
+  position: absolute;
+  width: 12px;
+}
+
+.copy-btn {
+  color: #333;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 700;
+  line-height: 1.6;
+  opacity: 0;
+  outline: 0;
+  padding: 2px 6px;
+  position: absolute;
+  transition: opacity 0.3s ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  background-color: #ffffff;
+  background-image: linear-gradient(#fff, #fff);
+  border: none;
+  border-radius: 3px;
+  font-size: 0.8125em;
+  right: 4px;
+  top: 3px;
+}
+
+// 文章页分页样式
+.pagination .prev, .pagination .next, .pagination .page-number {
+  border: 0;
+}
+
+.pagination .prev:hover, .pagination .next:hover, .pagination .page-number:hover {
+  background-color: rgba(204, 204, 204, 0.7);
+}
