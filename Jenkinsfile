@@ -27,5 +27,11 @@ sudo apt install git'''
       }
     }
 
+    stage('Deliver') {
+      steps {
+        sshPublisher(alwaysPublishFromMaster: true, continueOnError: true, failOnError: true, masterNodeName: 'master')
+      }
+    }
+
   }
 }
