@@ -1,16 +1,19 @@
 pipeline {
   agent {
     docker {
-      image 'node:10.13.0-alpine'
-      args '-p 4000:4000'
+      image 'debian:buster'
     }
 
   }
   stages {
     stage('PreBuild') {
       steps {
+        sh '''sudo apt update && \\
+sudo apt install nodejs \\
+sudo apt install git'''
         sh 'git submodule init'
         sh 'git submodule update'
+        sh 'npm install -g hexo-server hexo'
         sh 'npm install'
         sh 'cp ./source/_data/next.yml ./config.yml'
       }
@@ -20,6 +23,7 @@ pipeline {
       steps {
         sh 'hexo clean'
         sh 'hexo generate'
+        sh 'hexo s'
       }
     }
 
