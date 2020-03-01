@@ -8,9 +8,9 @@ pipeline {
   stages {
     stage('PreBuild') {
       steps {
-        sh '''sudo apt update && \\
-sudo apt install nodejs \\
-sudo apt install git'''
+        sh '''apt update && \\
+apt install nodejs \\
+apt install git'''
         sh 'git submodule init'
         sh 'git submodule update'
         sh 'npm install -g hexo-server hexo'
