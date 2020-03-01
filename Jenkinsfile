@@ -8,8 +8,8 @@ pipeline {
   stages {
     stage('PreBuild') {
       steps {
-        sh '''apt update && \\
-apt install nodejs \\
+        sh '''apt update && 
+apt install nodejs && 
 apt install git'''
         sh 'git submodule init'
         sh 'git submodule update'
